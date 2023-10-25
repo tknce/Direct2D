@@ -101,11 +101,24 @@ CGameObject* CLevel::FindObjectByName(const wstring& _Name)
 	for (UINT i = 0; i < MAX_LAYER; ++i)
 	{
 		const vector<CGameObject*>& vecObjects = m_arrLayer[i].GetObjects();
-
+		const vector<CGameObject*>& vecParentObjects = m_arrLayer[i].GetParentObjects();
 		for (size_t j = 0; j < vecObjects.size(); ++j)
 		{
 			if (_Name == vecObjects[j]->GetName())
 				return vecObjects[j];
+		}
+		for (size_t j = 0; j < vecParentObjects.size(); ++j)
+		{
+			if (_Name == vecParentObjects[j]->GetName())
+				return vecParentObjects[j];
+
+			const vector<CGameObject*>& vecchildobj = vecParentObjects[j]->GetChildObject();
+			for (size_t k = 0; k < vecchildobj.size(); ++k)
+			{
+				if (_Name == vecchildobj[k]->GetName())
+					return vecchildobj[k];
+			}
+
 		}
 	}
 

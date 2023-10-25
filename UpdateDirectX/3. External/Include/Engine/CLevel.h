@@ -32,6 +32,7 @@ public:
     void AddGameObject(CGameObject* _pObject, const wstring& _strLayerName);
 
     CGameObject* FindObjectByName(const wstring& _Name);
+
     void FindObjectByName(const wstring& _Name, vector<CGameObject*>& _out);
     void FindObjectByWord(const wstring& _Name, vector<CGameObject*>& _out);
     void FindObjectByPos(CGameObject* _Pos, vector<CGameObject*>& _out);

@@ -45,11 +45,13 @@ public:
     CLevel* LoadLevel(wstring _strRelativePath);
 
     void SaveTurnBackTime();
+    void SaveTime();
     void LoadTurnBackTime();
 
     void SetTimeState(TIMESTATE _state) { m_Timestate = _state; }
     TIMESTATE GetTimestate() { return m_Timestate; }
     void ChangeLevel() { m_bChangeLevel = true; }
+    void ClearTimeobj() { m_vSavesave.clear(); m_iSaveIdx = 0; m_iCurIdx = 0; }
 
     int GetSaveIDX() { return m_iSaveIdx; }
 public:

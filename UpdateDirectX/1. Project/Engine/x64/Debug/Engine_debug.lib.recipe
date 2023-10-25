@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Engine\blood.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Engine\BloodParticle.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Engine\burn.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Engine\func.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Engine\Rain.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Engine\Razer_spark.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Engine\RazerParticle.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

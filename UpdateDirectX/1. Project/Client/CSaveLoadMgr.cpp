@@ -77,128 +77,133 @@ void CSaveLoadMgr::tick()
 
 	if (m_Timestate.recording)
 	{
-		if(CLevelMgr::GetInst()->GetLevelState() == LEVEL_STATE::PLAY)
-		{ 
-			if (KEY_PRESSED(KEY::LSHIFT))
-			{
-				skill = 4;
-			}
-			if (m_fAcctime * skill > Time)
-			{
-				SaveTurnBackTime();
-			}
+		if (CLevelMgr::GetInst()->GetLevelState() == LEVEL_STATE::PLAY)
+		{
+			//if (KEY_PRESSED(KEY::LSHIFT))
+			//{
+			//	skill = 4;
+			//}
+			//if (m_fAcctime * skill > Time)
+			//{
+			//	SaveTime();
+			//}
+			SaveTime();
 		}
-		
+
 		m_fAcctime = 0;
 	}
-	
-
-	if (m_Timestate.play)
+	float time = 0.f;
+	if (m_fAcctime > time)
 	{
-		if (CPlayerMgr::GetInst()->GetDead() == 1)
+		if (m_Timestate.play)
 		{
-			for (int i = 0; i < MAX_LAYER; ++i)
+			if (CPlayerMgr::GetInst()->GetDead() == 1)
 			{
 				m_iSaveIdx -= 5;
-				if (m_iSaveIdx >= 0)
+				for (int i = 0; i < MAX_LAYER; ++i)
 				{
-					vector<SAVEINSIDE> Ojbectinfo = m_vSavesave[m_iSaveIdx];
-					for (size_t j = 0; j < Ojbectinfo.size(); ++j)
-					{
-						if (Ojbectinfo[j].Object->Animator2D() != nullptr && Ojbectinfo[j].Object->Animator2D()->GetCurAnim() != nullptr)
-						{
-							Ojbectinfo[j].Object->Transform()->SetRelativePos(Ojbectinfo[j].ObjectPos);
-							Ojbectinfo[j].Object->Transform()->SetRelativeRotation(Ojbectinfo[j].ObjectDir);
 
-							if (Ojbectinfo[j].ObjectIdx > Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size())
+					if (m_iSaveIdx >= 0)
+					{
+						vector<SAVEINSIDE> Ojbectinfo = m_vSavesave[m_iSaveIdx];
+						for (size_t j = 0; j < Ojbectinfo.size(); ++j)
+						{
+							if (Ojbectinfo[j].Object != nullptr && Ojbectinfo[j].Object->Animator2D() != nullptr && Ojbectinfo[j].Object->Animator2D()->GetCurAnim() != nullptr)
 							{
-								Ojbectinfo[j].ObjectIdx = Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size() - 1;
+								Ojbectinfo[j].Object->Transform()->SetRelativePos(Ojbectinfo[j].ObjectPos);
+								Ojbectinfo[j].Object->Transform()->SetRelativeRotation(Ojbectinfo[j].ObjectDir);
+
+								if (Ojbectinfo[j].ObjectIdx > Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size())
+								{
+									Ojbectinfo[j].ObjectIdx = Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size() - 1;
+								}
+								Ojbectinfo[j].Object->Animator2D()->Play_Load(Ojbectinfo[j].ObjectAniName, Ojbectinfo[j].ObjectIdx);
 							}
-							Ojbectinfo[j].Object->Animator2D()->Play_Load(Ojbectinfo[j].ObjectAniName, Ojbectinfo[j].ObjectIdx);
 						}
 					}
+					else
+					{
+						m_Timestate.play = false;
+						m_Timestate.Rerecording = true;
+						m_vSavesave.clear();
+						CPlayerMgr::GetInst()->SetDead(0);
+						CPlayerMgr::GetInst()->Setreturn(false);
+					}
+					m_fAcctime = 0;
 				}
-				else
-				{
-					m_Timestate.play = false;
-					m_Timestate.Rerecording = true;
-					m_vSavesave.clear();
-					CPlayerMgr::GetInst()->SetDead(0);
-					CPlayerMgr::GetInst()->Setreturn(false);
-				}
-				m_fAcctime = 0;
 			}
+			else
+			{
+				++m_iCurIdx;
+				for (int i = 0; i < MAX_LAYER; ++i)
+				{
+					if (m_iCurIdx < m_iSaveIdx)
+					{
+						vector<SAVEINSIDE> Ojbectinfo = m_vSavesave[m_iCurIdx];
+						for (size_t j = 0; j < Ojbectinfo.size(); ++j)
+						{
+							if (Ojbectinfo[j].Object != nullptr && Ojbectinfo[j].Object->Animator2D() != nullptr && Ojbectinfo[j].Object->Animator2D()->GetCurAnim() != nullptr)
+							{
+								Ojbectinfo[j].Object->Transform()->SetRelativePos(Ojbectinfo[j].ObjectPos);
+								Ojbectinfo[j].Object->Transform()->SetRelativeRotation(Ojbectinfo[j].ObjectDir);
+
+								if (Ojbectinfo[j].ObjectIdx > Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size())
+								{
+									Ojbectinfo[j].ObjectIdx = Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size() - 1;
+								}
+								Ojbectinfo[j].Object->Animator2D()->Play_Load(Ojbectinfo[j].ObjectAniName, Ojbectinfo[j].ObjectIdx);
+							}
+						}
+					}
+					else
+					{
+						m_Timestate.play = false;
+						m_Timestate.Rerecording = true;
+						m_iCurIdx = 0;
+						m_iSaveIdx = 0;
+						m_vSavesave.clear();
+						CPlayerMgr::GetInst()->SetDead(0);
+						CPlayerMgr::GetInst()->Setreturn(false);
+					}
+					m_fAcctime = 0;
+				}
+			}
+
 		}
 		else
 		{
-			for (int i = 0; i < MAX_LAYER; ++i)
-			{
-				++m_iCurIdx;
-				if (m_iCurIdx < m_iSaveIdx)
-				{
-					vector<SAVEINSIDE> Ojbectinfo = m_vSavesave[m_iCurIdx];
-					for (size_t j = 0; j < Ojbectinfo.size(); ++j)
-					{
-						if (Ojbectinfo[j].Object->Animator2D() != nullptr && Ojbectinfo[j].Object->Animator2D()->GetCurAnim() != nullptr)
-						{
-							Ojbectinfo[j].Object->Transform()->SetRelativePos(Ojbectinfo[j].ObjectPos);
-							Ojbectinfo[j].Object->Transform()->SetRelativeRotation(Ojbectinfo[j].ObjectDir);
-
-							if (Ojbectinfo[j].ObjectIdx > Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size())
-							{
-								Ojbectinfo[j].ObjectIdx = Ojbectinfo[j].Object->Animator2D()->GetCurAnim()->GetAnimFrm().size() - 1;
-							}
-							Ojbectinfo[j].Object->Animator2D()->Play_Load(Ojbectinfo[j].ObjectAniName, Ojbectinfo[j].ObjectIdx);
-						}
-					}
-				}
-				else
-				{
-					m_Timestate.play = false;
-					m_Timestate.Rerecording = true;
-					m_iCurIdx = 0;
-					m_iSaveIdx = 0;
-					m_vSavesave.clear();
-					CPlayerMgr::GetInst()->SetDead(0);
-					CPlayerMgr::GetInst()->Setreturn(false);
-				}
-				m_fAcctime = 0;
-			}
+			m_fAcctime = 0;
 		}
-		
 	}
-	else
-	{
-		m_fAcctime = 0;
-	}
+
 
 
 
 	if (m_Timestate.Rerecording)
 	{
-		wstring strFilePath = CPathMgr::GetInst()->GetContentPath();
-		strFilePath += L"turnbacktime\\";
-		filesystem::v1::path currentPath = strFilePath;
-		filesystem::v1::remove_all(currentPath);
+		//wstring strFilePath = CPathMgr::GetInst()->GetContentPath();
+		//strFilePath += L"turnbacktime\\";
+		//filesystem::v1::path currentPath = strFilePath;
+		//filesystem::v1::remove_all(currentPath);
 
-		strFilePath = CPathMgr::GetInst()->GetContentPath();
-		strFilePath += L"turnbacktime\\";
-		filesystem::v1::create_directories(strFilePath);
+		//strFilePath = CPathMgr::GetInst()->GetContentPath();
+		//strFilePath += L"turnbacktime\\";
+		//filesystem::v1::create_directories(strFilePath);
 
-		// 경로
-		strFilePath = CPathMgr::GetInst()->GetContentPath();
+		//// 경로
+		//strFilePath = CPathMgr::GetInst()->GetContentPath();
 
-		wstring Name;
-		Name += L"turnbacktime\\";
-		++m_iSaveIdx;
-		Name += std::to_wstring(m_iSaveIdx);
-		Name += L".a";
+		//wstring Name;
+		//Name += L"turnbacktime\\";
+		//++m_iSaveIdx;
+		//Name += std::to_wstring(m_iSaveIdx);
+		//Name += L".a";
 
-		m_vSave = Name;
-		strFilePath += Name;
-		// 파일 쓰기
-		m_pFile = nullptr;
-		_wfopen_s(&m_pFile, strFilePath.c_str(), L"wb");
+		//m_vSave = Name;
+		//strFilePath += Name;
+		//// 파일 쓰기
+		//m_pFile = nullptr;
+		//_wfopen_s(&m_pFile, strFilePath.c_str(), L"wb");
 		m_Timestate.Rerecording = false;
 		m_Timestate.recording = true;
 	}
@@ -446,6 +451,34 @@ void CSaveLoadMgr::SaveTurnBackTime()
 		m_pFile = nullptr;
 		_wfopen_s(&m_pFile, strFilePath1.c_str(), L"wb");
 	}
+}
+
+void CSaveLoadMgr::SaveTime()
+{
+	SAVEINSIDE Inside;
+	vector<SAVEINSIDE> SaveInside;
+	for (size_t i = 0; i < MAX_LAYER; ++i)
+	{
+		// 모든 오브젝트를 가져온다
+		vector<CGameObject*> Objects = CLevelMgr::GetInst()->GetCurLevel()->GetLayer(i)->GetParentObjects();
+		for (size_t j = 0; j < Objects.size(); ++j)
+		{
+			if (Objects[j] == nullptr)
+				continue;
+			Inside.Object = Objects[j];
+			Inside.ObjectPos = Objects[j]->Transform()->GetRelativePos();
+			Inside.ObjectDir = Objects[j]->Transform()->GetRelativeRotation();
+			if (Objects[j]->Animator2D() != nullptr && Objects[j]->Animator2D()->GetCurAnim() != nullptr)
+			{
+				Inside.ObjectAniName = Objects[j]->Animator2D()->GetCurAnim()->GetName();
+				Inside.ObjectIdx = Objects[j]->Animator2D()->GetCurAnim()->GetIDX();
+			}
+
+			SaveInside.push_back(Inside);
+		}
+	}
+	m_vSavesave.push_back(SaveInside);
+	m_iSaveIdx = m_vSavesave.size();
 }
 
 void CSaveLoadMgr::LoadTurnBackTime()

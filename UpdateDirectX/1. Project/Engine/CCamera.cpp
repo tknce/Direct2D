@@ -32,6 +32,7 @@ CCamera::CCamera()
 
 CCamera::~CCamera()
 {
+	CRenderMgr::GetInst()->ClearCam();
 }
 
 void CCamera::finaltick()

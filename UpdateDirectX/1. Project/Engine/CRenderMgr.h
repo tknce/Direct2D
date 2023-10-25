@@ -39,6 +39,7 @@ public:
 
 	void RegisterLight2D(CLight2D* _pLight2D) { m_vecLight2D.push_back(_pLight2D->GetLightInfo()); }
 
+	void ClearCam() { m_vecCam.clear(); }
 	CCamera* GetMainCam();
 
 

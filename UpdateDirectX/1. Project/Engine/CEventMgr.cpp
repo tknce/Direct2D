@@ -130,6 +130,12 @@ void CEventMgr::tick()
 			CSaveLoadMgr::GetInst()->ChangeLevel();
 			CLevelMgr::GetInst()->init();
 			m_bLevelChanged = true;
+			// 바로 체인지 해본다
+			tEvent evn = {};
+			evn.eType = EVENT_TYPE::CHANGE_LEVEL_STATE;
+			evn.wParam = (DWORD_PTR)LEVEL_STATE::PLAY;
+			CEventMgr::GetInst()->AddEvent(evn);
+			m_bLevelChanged = true;
 		}
 		break;
 		case EVENT_TYPE::DELETE_COMPONENT:

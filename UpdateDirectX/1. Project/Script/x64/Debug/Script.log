@@ -1,0 +1,52 @@
+﻿  .\1. Project\Script\CAIScript.h
+  .\1. Project\Script\CBloodScript.h
+  .\1. Project\Script\CBrokenObject.h
+  .\1. Project\Script\CCamereScript.h
+  .\1. Project\Script\CClearScript.h
+  .\1. Project\Script\CClear_1Script.h
+  .\1. Project\Script\CDeadScript.h
+  .\1. Project\Script\CDoorScript.h
+  .\1. Project\Script\CFactory_1Script.h
+  .\1. Project\Script\CFloordownScript.h
+  .\1. Project\Script\CFloorScript.h
+  .\1. Project\Script\CGasterScript.h
+  .\1. Project\Script\CGrountScript.h
+  .\1. Project\Script\CGunProjScript.h
+  .\1. Project\Script\CGunsparkScript.h
+  .\1. Project\Script\CLastScript.h
+  .\1. Project\Script\CLighterScript.h
+  .\1. Project\Script\CMainScript.h
+  .\1. Project\Script\CMissileScript.h
+  .\1. Project\Script\CMonsterScript.h
+  .\1. Project\Script\CNongrabwallScript.h
+  .\1. Project\Script\CPlayerScript.h
+  .\1. Project\Script\CPompScript.h
+  .\1. Project\Script\CRazerScript.h
+  .\1. Project\Script\CScriptMgr.h
+  .\1. Project\Script\CStairScript.h
+  .\1. Project\Script\CTargetScript.h
+  .\1. Project\Script\CTileMapState.h
+  .\1. Project\Script\CTimerScript.h
+  .\1. Project\Script\CTitleScript.h
+  .\1. Project\Script\CTurnbackScript.h
+  .\1. Project\Script\CUIcursorScript.h
+  .\1. Project\Script\CUIIconScript.h
+  .\1. Project\Script\CUIScript.h
+  .\1. Project\Script\CUIskillScript.h
+  .\1. Project\Script\CVentScript.h
+  .\1. Project\Script\CWallScript.h
+  37개 파일이 복사되었습니다.
+  pch.cpp
+  unity_9TTS5THIFAZ6L9OD.cpp
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CBloodScript.cpp(46,36): warning C4244: '인수': 'float'에서 'const unsigned __int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CDeadScript.cpp(40,8): warning C4309: '=': 상수 값이 잘립니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CDeadScript.cpp(62,8): warning C4309: '=': 상수 값이 잘립니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CMainScript.cpp(126,8): warning C4309: '=': 상수 값이 잘립니다.
+  unity_5B5WXIV4R3DCYMPM.cpp
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CPlayerScript.cpp(512,36): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CRazerScript.cpp(74,23): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CUIskillScript.cpp(49,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CVentScript.cpp(39,28): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Script\CVentScript.cpp(48,29): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+  코드를 생성하고 있습니다...
+  Script.vcxproj -> C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\3. External\Library\Script\Script_debug.lib

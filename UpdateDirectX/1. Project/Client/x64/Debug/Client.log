@@ -1,0 +1,51 @@
+﻿  unity_08MJSA2Q4X0YBZZD.cpp
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(160,42): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(162,186): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(202,55): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(548,24): warning C4244: '초기화 중': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(549,24): warning C4244: '초기화 중': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\CSaveLoadMgr.cpp(118,109): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\CSaveLoadMgr.cpp(152,109): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\CSaveLoadMgr.cpp(396,81): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\CSaveLoadMgr.cpp(463,81): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\CSaveLoadMgr.cpp(481,33): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\CSaveLoadMgr.cpp(537,33): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xstring(2603,27): warning C4244: '인수': 'const wchar_t'에서 'const _Elem'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Elem=char
+          ]
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(93): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(93): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\xstring(2603,27): warning C4244: '인수': 'wchar_t'에서 'const _Elem'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Elem=char
+          ]
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(109): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\1. Project\Client\Animator2DUI.cpp(109): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+  Client.vcxproj -> C:\Users\ace\Desktop\katana\Direct2D\Direct2D\UpdateDirectX\2. OutputFile\bin_debug\Client.exe
